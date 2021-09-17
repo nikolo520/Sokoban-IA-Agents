@@ -6,7 +6,21 @@ class SokobanProblem extends Problem {
         this.env = args;
     }
 
-
+    /**
+     * Check if the given solution solves the problem. You must override.
+     * The current state of the enviroment is maintained in data.world
+     * @param {Object} solution 
+     */
+    
+     goalTest(data) {
+        let win = true;
+        for (var i = 0; i < data.box_points.length(); i++) {
+            if(data.world[data.box_points[i].y][data.box_points[i].x]!='Z'){
+                win = false
+            }
+        }
+        return win;
+    }
 
     /**
      * Solve the given problem
